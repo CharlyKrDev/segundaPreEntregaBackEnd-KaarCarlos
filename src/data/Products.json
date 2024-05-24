@@ -1,0 +1,179 @@
+[
+  {
+    "title": "La serenisima",
+    "description": "Leche Entera",
+    "price": 1500,
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+    "code": "lse3",
+    "stock": 10,
+    "status": true,
+    "id": 1
+  },
+  {
+    "title": "La serenisima",
+    "description": "Leche Descremada",
+    "price": 1500,
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+    "code": "lse1",
+    "stock": 10,
+    "status": true,
+    "id": 2
+  },
+  {
+    "title": "La serenisima",
+    "description": "Leche Parcialemente",
+    "price": 1500,
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+    "code": "ls55",
+    "stock": 10,
+    "status": true,
+    "id": 3
+  },
+  {
+    "title": "La campagnola",
+    "description": "Mermelada de frutilla",
+    "price": 2500,
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+    "code": "ls56",
+    "stock": 5,
+    "status": true,
+    "id": 4
+  },
+  {
+    "title": "Taragui",
+    "description": "Yerba Mate - 500gr",
+    "price": 500,
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+    "code": "YMT500GC22",
+    "stock": 5,
+    "status": true,
+    "id": 5
+  },
+  {
+    "title": "Capitan del espacio",
+    "description": "Alfajor simple Chocolate",
+    "price": 1500,
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+    "code": "alfcap1",
+    "stock": 10,
+    "status": true,
+    "id": 6
+  },
+  {
+    "title": "La serenisima",
+    "description": "Dulce de Leche - 500gr",
+    "price": 1500,
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+    "code": "Dlse1",
+    "stock": 10,
+    "status": true,
+    "id": 7
+  },
+  {
+    "title": "Coca-Cola",
+    "description": "Gaseosa Coca - 2lts",
+    "price": 1500,
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+    "code": "CC2lts",
+    "stock": 10,
+    "status": true,
+    "id": 8
+  },
+  {
+    "title": "Pepsi",
+    "description": "Gaseosa Pepsi - 2lts",
+    "price": 2500,
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+    "code": "lssssssses3",
+    "stock": 5,
+    "status": true,
+    "id": 9
+  },
+  {
+    "title": "Havanna",
+    "description": "Alfajor con sal marina",
+    "price": 22500,
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+    "code": "lssssssses3",
+    "stock": 5,
+    "status": true,
+    "id": 10
+  },
+  {
+    "title": "La nonna",
+    "description": "Postre Flan",
+    "price": 2500,
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+    "code": "Lnpf200",
+    "stock": 5,
+    "status": true,
+    "id": 11
+  },
+  {
+    "title": "Havanna",
+    "description": "Havannet",
+    "price": 2500,
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+    "code": "Hvanet",
+    "stock": 5,
+    "status": true,
+    "id": 12
+  },
+  {
+    "title": "asdasd",
+    "description": "asda",
+    "code": "asd",
+    "price": "12312",
+    "status": true,
+    "stock": "4",
+    "category": "casc",
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+    "id": 13
+  },
+  {
+    "title": "asdasd",
+    "description": "asda",
+    "code": "asdasdas",
+    "price": "12312",
+    "status": true,
+    "stock": "4",
+    "category": "casc",
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+    "id": 14
+  },
+  {
+    "title": "asd",
+    "description": "asd",
+    "code": "asdasdas123123",
+    "price": "12312",
+    "status": true,
+    "stock": "12312",
+    "category": "casc",
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+    "id": 15
+  },
+  {
+    "title": "asd",
+    "description": "asd",
+    "code": "asdasdas123123asdasd",
+    "price": "12312",
+    "status": true,
+    "stock": "12312",
+    "category": "casc",
+    "thumbnail": "https://cdn-icons-png.flaticon.com/512/1554/1554591.png",
+    "id": 16
+  },
+  {
+    "title": "sadsasd",
+    "description": "asdasda",
+    "code": "GALICIA_CODER",
+    "price": "312312",
+    "status": true,
+    "stock": "12312",
+    "category": "asd",
+    "thumbnail": [
+      "https://cdn-icons-png.flaticon.com/512/1554/1554591.png"
+    ],
+    "id": 17
+  }
+]

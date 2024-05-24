@@ -1,0 +1,58 @@
+<main class="editProducts">
+  <a href="http://localhost:8080/home/"><button
+      style="margin-top:30px"
+    >Volver</button></a>
+  <a href="http://localhost:8080/messages/"><button
+      style="margin-top:30px"
+    >Atención por chat</button></a>
+
+  <header>
+    <h2>Agregar producto</h2>
+  </header>
+
+  <h3 style="margin-bottom: 10px;">Los siguientes campos son obligatorios:
+    Titulo, Descripción, Código, Precio, Stock, Categoría:</h3>
+
+  <section class="containerForm">
+    <form
+      class="formProduct"
+      id="formSection"
+      action="/realTimeProducts"
+      method="post"
+    >
+      <label for="title">Titulo: </label>
+      <input type="text" id="title" name="title" />
+
+      <label for="description">Descripción: </label>
+      <input type="text" id="description" name="description" />
+
+      <label for="code">Código del producto: </label>
+      <input type="text" id="code" name="code" />
+
+      <label for="price">Precio: </label>
+      <input type="number" id="price" name="price" />
+
+      <label for="status">Status (true o false, cualquier otro valor es true):
+      </label>
+      <input type="text" id="status" name="status" />
+
+      <label for="stock">Stock: </label>
+      <input type="number" id="stock" name="stock" />
+
+      <label for="category">Categoría: </label>
+      <input type="text" id="category" name="category" />
+
+      <label for="thumbnail">Imagen (url): </label>
+      <input type="url" id="thumbnail" name="thumbnail" />
+
+      <button type="submit" style="margin-top:10px">Cargar</button>
+    </form>
+  </section>
+
+  <section class="container" id="productList">
+
+  </section>
+
+</main>
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" src="js/index.js"></script>

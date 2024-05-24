@@ -1,0 +1,21 @@
+<a href="http://localhost:8080/realTimeProducts"><button
+    style="margin-top:30px"
+  >Editar productos</button></a>
+<h2>Productos</h2>
+<main class="container" id="main">
+  {{#each productos}}
+    <section class="cardContainer">
+      <h2 class="titleCard">{{this.title}}</h2>
+      <img class="imgCard" src={{this.thumbnail}} alt="{{this.title}}" />
+      <section class="textCard">
+        <p> ID: {{this._id}}</p>
+        <p>{{this.description}}</p>
+        <p>Stock: {{this.stock}} unidades</p>
+        <p><span>${{this.price}}</span></p>
+      </section>
+    </section>
+  {{/each}}
+
+</main>
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" src="/js/home.js"></script>
