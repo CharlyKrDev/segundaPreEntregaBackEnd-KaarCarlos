@@ -2,12 +2,12 @@ import express from "express";
 import { viewsPath, publicPath } from "./utils.js";
 import { realTimeProductsRouter } from "./routes/realTimeProductsRouter.js";
 import { homeRouter } from "./routes/homeRouters.js";
-
+import cartsRouterM from "./routes/carts.router.js";
 // import { registerRouter } from "./routes/registerRouter.js";
 import { Server } from "socket.io";
 import productsRouter from "./routes/productsRouters.js";
 import { messagesRouter } from "./routes/messagesRouters.js";
-import cartsRouter from "./routes/cartsRouters.js";
+// import cartsRouter from "./routes/cartsRouters.js";
 import handlebars from "express-handlebars";
 import { socketConnection } from "./connection/handleSockets.js";
 import { messagesConnection } from "./connection/messagesSockets.js";
@@ -35,7 +35,7 @@ app.engine("handlebars", handlebars.engine());
 app.set("view engine", "handlebars");
 
 app.use("/", productsRouter);
-app.use("/", cartsRouter);
+app.use("/", cartsRouterM);
 app.use("/realTimeProducts", realTimeProductsRouter);
 app.use("/messages", messagesRouter);
 app.use("/home", homeRouter);
