@@ -5,13 +5,12 @@ const productsRouter = Router();
 
 productsRouter.get("/api/products", async (req, res) => {
   const limit = parseInt(req.query.limit);
-
   try {
     let products;
     if (!isNaN(limit)) {
       products = await productsModel.find().limit(limit);
     } else {
-      products = await productsModel.find();
+      products = await productsModel.find().limit();
     }
     res.status(200).json(products);
   } catch (error) {

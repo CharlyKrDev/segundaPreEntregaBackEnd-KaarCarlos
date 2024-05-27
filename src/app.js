@@ -38,7 +38,7 @@ app.use("/", productsRouter);
 app.use("/", cartsRouterM);
 app.use("/realTimeProducts", realTimeProductsRouter);
 app.use("/messages", messagesRouter);
-app.use("/home", homeRouter);
+app.use("/products", homeRouter);
 
 mongoose
   .connect(mongoServer)

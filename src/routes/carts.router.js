@@ -43,7 +43,7 @@ cartsRouterM.post("/api/carts", async (req, res) => {
 });
 
 // Agregar producto al carrito
-cartsRouterM.post("/api/carts/:cid/products/:pid", async (req, res) => {
+cartsRouterM.put("/api/carts/:cid/products/:pid", async (req, res) => {
   const { cid, pid } = req.params;
 
   try {

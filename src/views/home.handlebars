@@ -1,21 +1,51 @@
-<a href="http://localhost:8080/realTimeProducts"><button
-    style="margin-top:30px"
-  >Editar productos</button></a>
+<a href="http://localhost:8080/realTimeProducts"><button style="margin-top:30px">Editar productos</button></a>
+<section>
+  <div>
+    <label for="limitSelect">Mostrar:</label>
+    <select id="limitSelect" class="form-control">
+      <option value="2">2</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="all">Todos</option>
+    </select>
+  </div>
+  <div>
+    <label for="sort">Ordenar por precio</label>
+    <select id="sort" class="form-control">
+      <option value="">Ninguno</option>
+      <option value="asc">De menor a mayor</option>
+      <option value="desc">De mayor a menor</option>
+    </select>
+  </div>
+</section>
+<section class="containerPages">
+  <div class="pages">
+    {{#if hasPrevPage}}
+    <a href="{{prevLink}}">&lt;&lt; Anterior</a>
+    {{/if}}
+    &nbsp;
+    {{page}}
+    &nbsp;
+    {{#if hasNextPage}}
+    <a href="{{nextLink}}">Siguiente &gt;&gt;</a>
+    {{/if}}
+  </div>
+</section>
 <h2>Productos</h2>
 <main class="container" id="main">
   {{#each productos}}
-    <section class="cardContainer">
-      <h2 class="titleCard">{{this.title}}</h2>
-      <img class="imgCard" src={{this.thumbnail}} alt="{{this.title}}" />
-      <section class="textCard">
-        <p> ID: {{this._id}}</p>
-        <p>{{this.description}}</p>
-        <p>Stock: {{this.stock}} unidades</p>
-        <p><span>${{this.price}}</span></p>
-      </section>
+  <section class="cardContainer">
+    <h2 class="titleCard">{{this.title}}</h2>
+    <img class="imgCard" src="{{this.thumbnail}}" alt="{{this.title}}" />
+    <section class="textCard">
+      <p>ID: {{this._id}}</p>
+      <p>{{this.description}}</p>
+      <p>Stock: {{this.stock}} unidades</p>
+      <p><span>${{this.price}}</span></p>
+      <button>Agregar al carrito</button>
     </section>
+  </section>
   {{/each}}
-
 </main>
 <script src="/socket.io/socket.io.js"></script>
 <script type="module" src="/js/home.js"></script>
