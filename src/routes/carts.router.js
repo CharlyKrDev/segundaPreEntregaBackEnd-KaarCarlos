@@ -6,11 +6,34 @@ import productsModel from "../dao/models/products.model.js";
 const ObjectId = mongoose.Types.ObjectId;
 const cartsRouterM = Router();
 
+//Todos los carritos
+
+cartsRouterM.get('/api/carts/', async(req, res) =>{
+  try {
+
+    const carts = await cartsModel.find().lean();
+    console.log(carts)
+
+    res.status(200).send(carts)
+  } catch (error) {
+    res
+      .status(500)
+      .json({
+        message: `Error al obtener el carrito por ID`,
+        error: error.message,
+      });
+  }
+
+
+})
+
 // Obtener un carrito por ID
 cartsRouterM.get("/api/carts/:cid", async (req, res) => {
   const { cid } = req.params;
   try {
-    const cart = await cartsModel.findById(cid);
+    const cart = await cartsModel.findById(cid).populate('products.productId').lean();
+
+
     if (!cart) {
       return res
         .status(404)

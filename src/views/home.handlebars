@@ -5,9 +5,11 @@
     <select id="limitSelect" class="form-control">
       <option value="2">2</option>
       <option value="5">5</option>
-      <option value="10">10</option>
+      <option value="10" selected>10</option>
       <option value="all">Todos</option>
     </select>
+    <button id="createCart">Crear carrito</button>
+
   </div>
   <div>
     <label for="sort">Ordenar por precio</label>
@@ -42,7 +44,13 @@
       <p>{{this.description}}</p>
       <p>Stock: {{this.stock}} unidades</p>
       <p><span>${{this.price}}</span></p>
-      <button>Agregar al carrito</button>
+      <label for="cartSelect-{{this._id}}">Selecciona Carrito:</label>
+      <select id="cartSelect-{{this._id}}" class="cart-select">
+        {{#each ../carts}}
+        <option value="{{this._id}}">Carrito ID: {{this._id}}</option>
+        {{/each}}
+      </select>
+      <button class="add-to-cart" data-id="{{this._id}}">Agregar al carrito</button>
     </section>
   </section>
   {{/each}}

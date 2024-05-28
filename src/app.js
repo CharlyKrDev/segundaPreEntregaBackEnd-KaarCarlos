@@ -19,7 +19,7 @@ const app = express();
 const PORT = 8080;
 const httpServer = app.listen(
   PORT,
-  console.log(`Server running on port: http://localhost:${PORT}/home`)
+  console.log(`Server running on port: http://localhost:${PORT}/products`)
 );
 const socketServer = new Server(httpServer);
 dotenv.config();

@@ -1,5 +1,7 @@
 import express from "express";
 import productsModel from "../dao/models/products.model.js";
+import cartsModel from "../dao/models/carts.models.js";
+
 
 export const homeRouter = express.Router();
 
@@ -7,6 +9,7 @@ homeRouter.get("/", async (req, res) => {
   try {
     let { limit = 10, page = 1, sort, debug } = req.query;
     const totalProduct = await productsModel.countDocuments()
+    const carts = await cartsModel.find().lean()
     // Convert limit to a number if it's not "all"
     limit = limit === "all" ? totalProduct : parseInt(limit);
     page = parseInt(page);
@@ -58,6 +61,7 @@ homeRouter.get("/", async (req, res) => {
       prevLink,
       nextLink,
       isValid,
+      carts: carts,
     });
   } catch (error) {
     res.status(404).json({ error: error.message });
