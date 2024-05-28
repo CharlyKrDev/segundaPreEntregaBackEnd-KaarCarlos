@@ -198,3 +198,42 @@ Chat Style
   display: flex;
   flex-direction: column;
 }
+
+
+/*
+Carts Style
+*/
+.titleCart{
+
+    font-size: 14px;
+}
+
+/*
+Cart Style
+*/
+
+.containerProdCart{
+
+    display: flex;
+    width: 90%;
+    margin: auto;
+    background-color: ghostwhite;
+    align-items: center;
+    
+}
+
+.imgProdCart{
+    width: 15%;
+}
+.prodCart{
+    width: 25%;
+    justify-self: left;
+}
+.infoProdCart{
+    width: 25%;
+}
+.handleProdCart{
+    width: 25%;
+    display: flex;
+    gap: 5px;
+}

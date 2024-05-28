@@ -1,17 +1,13 @@
 import express from "express";
-import { viewsPath, publicPath } from "./utils.js";
-import { realTimeProductsRouter } from "./routes/realTimeProductsRouter.js";
+import { viewsPath, publicPath, hbs } from "./utils.js";
+import { dashboardProductsRouter } from "./routes/dashboardProductsRouter.js";
 import { homeRouter } from "./routes/homeRouters.js";
 import cartsRouterM from "./routes/carts.router.js";
-// import { registerRouter } from "./routes/registerRouter.js";
 import { Server } from "socket.io";
 import productsRouter from "./routes/productsRouters.js";
 import { messagesRouter } from "./routes/messagesRouters.js";
-// import cartsRouter from "./routes/cartsRouters.js";
-import handlebars from "express-handlebars";
 import { socketConnection } from "./connection/handleSockets.js";
 import { messagesConnection } from "./connection/messagesSockets.js";
-
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
@@ -31,22 +27,22 @@ app.use(express.static(publicPath));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.engine("handlebars", handlebars.engine());
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 app.use("/", productsRouter);
 app.use("/", cartsRouterM);
-app.use("/realTimeProducts", realTimeProductsRouter);
+app.use("/realTimeProducts", dashboardProductsRouter);
 app.use("/messages", messagesRouter);
 app.use("/products", homeRouter);
 
 mongoose
   .connect(mongoServer)
   .then(() => {
-    console.log("Conectado a la DB");
+    console.log("Connected to the database");
   })
   .catch((error) => {
-    console.error(error, `error`);
+    console.error("Error connecting to the database:", error);
   });
 
 socketConnection(socketServer);

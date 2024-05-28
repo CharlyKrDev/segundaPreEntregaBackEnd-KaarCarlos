@@ -1,0 +1,31 @@
+
+<button><a href="http://localhost:8080/api/carts">Volver</a></button>
+<h2>Carrito</h2>
+<h3>Total: ${{total}}</h3>
+<button id="emptyCart" data-id="{{cart._id}}">Eliminar Carrito</button>
+
+{{#each cart.products}}
+
+<main class="containerProdCart">
+    <section class="imgProdCart">
+        <img class="imgCard" src="{{this.productId.thumbnail.[0]}}" alt="{{this.productId.title}}" />
+    </section>
+    <section class="prodCart">
+        <h2>{{this.productId.title}}</h2>
+        <p>Precio: ${{this.productId.price}}</p>
+    </section>
+    <section class="infoProdCart">
+        <p>Cantidad: {{this.quantity}}</p>
+        <p>Sub Total:{{multiply this.quantity this.productId.price}}
+</p>
+    </section>
+    <section class="handleProdCart">
+        <button class="deleteFromCart" data-id="{{this.productId._id}}">Eliminar un producto</button>
+    </section>
+
+
+</main>
+{{/each}}
+
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" src="/js/carts.js"></script>

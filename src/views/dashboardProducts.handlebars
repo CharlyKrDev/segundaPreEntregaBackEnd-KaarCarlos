@@ -1,10 +1,7 @@
 <main class="editProducts">
-  <a href="http://localhost:8080/products/"><button
-      style="margin-top:30px"
-    >Volver</button></a>
-  <a href="http://localhost:8080/messages/"><button
-      style="margin-top:30px"
-    >Atención por chat</button></a>
+  <a href="http://localhost:8080/products/"><button style="margin-top:30px">Volver</button></a>
+  <a href="http://localhost:8080/messages/"><button style="margin-top:30px">Atención por chat</button></a>
+  <button><a href="http://localhost:8080/api/carts">Ver carritos</a></button>
 
   <header>
     <h2>Agregar producto</h2>
@@ -14,12 +11,7 @@
     Titulo, Descripción, Código, Precio, Stock, Categoría:</h3>
 
   <section class="containerForm">
-    <form
-      class="formProduct"
-      id="formSection"
-      action="/realTimeProducts"
-      method="post"
-    >
+    <form class="formProduct" id="formSection" action="/realTimeProducts" method="post">
       <label for="title">Titulo: </label>
       <input type="text" id="title" name="title" />
 

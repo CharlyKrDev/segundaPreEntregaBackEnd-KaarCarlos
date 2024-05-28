@@ -10,11 +10,14 @@ const cartsRouterM = Router();
 
 cartsRouterM.get('/api/carts/', async(req, res) =>{
   try {
-
+    const imgCart ="/public/img/carrito.jpg"
     const carts = await cartsModel.find().lean();
-    console.log(carts)
 
-    res.status(200).send(carts)
+    res.render("carts", {
+      style: "style.css",
+      carts: carts,
+      img:imgCart
+    });
   } catch (error) {
     res
       .status(500)
@@ -33,13 +36,21 @@ cartsRouterM.get("/api/carts/:cid", async (req, res) => {
   try {
     const cart = await cartsModel.findById(cid).populate('products.productId').lean();
 
-
-    if (!cart) {
-      return res
-        .status(404)
-        .json({ message: `El id: ${cid} no pertenece a ningún carrito` });
-    }
-    res.status(200).json(cart);
+    // Inicializa el total a 0
+    let total = 0;
+    
+    // Itera sobre cada producto en el carrito
+    cart.products.forEach(product => {
+      // Multiplica la cantidad por el precio y suma al total
+      total += product.quantity * product.productId.price;
+    });
+    
+    // Ahora puedes renderizar el carrito incluyendo el total
+    res.render("cart", {
+      style: "style.css",
+      cart: cart,
+      total: total,
+    })
   } catch (error) {
     res
       .status(500)
