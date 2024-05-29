@@ -24,14 +24,12 @@ const sendMessage = (message, user) => {
   document.getElementById("chatMessage").value = "";
 };
 
+socket.on("message", (messages) => {
+  const containerMessage = document.getElementById("idMessage");
+  containerMessage.innerHTML = ""; // Limpiar mensajes anteriores
 
-
-socket.on('message', (messages) => {
-  const containerMessage = document.getElementById('idMessage');
-  containerMessage.innerHTML = ''; // Limpiar mensajes anteriores
-  
   messages.forEach((message) => {
-    const messageElement = document.createElement('p');
+    const messageElement = document.createElement("p");
     messageElement.textContent = message;
     containerMessage.appendChild(messageElement);
   });

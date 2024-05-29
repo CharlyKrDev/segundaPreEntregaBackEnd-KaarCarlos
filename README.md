@@ -99,7 +99,6 @@ export class CartManager {
     const checkId = await cartsManager.checkProductId(prodId);
     const checkIdCart = await cartsManager.checkCartId(cartId);
 
-    console.log(checkId);
 
     if (!checkId) {
       return res

@@ -15,7 +15,7 @@ const app = express();
 const PORT = 8080;
 const httpServer = app.listen(
   PORT,
-  console.log(`Server running on port: http://localhost:${PORT}/products`)
+  console.log(`Server running on port: http://localhost:${PORT}/api/products`)
 );
 const socketServer = new Server(httpServer);
 dotenv.config();
@@ -30,11 +30,10 @@ app.use(express.json());
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
-app.use("/", productsRouter);
 app.use("/", cartsRouterM);
-app.use("/realTimeProducts", dashboardProductsRouter);
+app.use("/dashBoardProducts", dashboardProductsRouter);
 app.use("/messages", messagesRouter);
-app.use("/products", homeRouter);
+app.use("/api/products", homeRouter);
 
 mongoose
   .connect(mongoServer)

@@ -37,7 +37,6 @@ function renderProductList(products) {
 
       const btnDelete2 = liProduct.querySelector(".btnDelete2");
       btnDelete2.addEventListener("click", () => {
-        console.log(`Click delete`)
         deleteProduct(product._id);
       });
     });
@@ -109,4 +108,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
   checkFields();
 });
-
