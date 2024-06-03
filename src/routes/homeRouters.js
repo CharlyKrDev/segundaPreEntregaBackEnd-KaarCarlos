@@ -42,10 +42,10 @@ homeRouter.get("/", async (req, res) => {
     }
 
         const prevLink = products.hasPrevPage
-      ? `http://localhost:8080/products/?page=${products.prevPage}&limit=${limit}`
+      ? `http://localhost:8080/api/products/?page=${products.prevPage}&limit=${limit}`
       : "";
     const nextLink = products.hasNextPage
-      ? `http://localhost:8080/products/?page=${products.nextPage}&limit=${limit}`
+      ? `http://localhost:8080/api/products/?page=${products.nextPage}&limit=${limit}`
       : "";
     const isValid = !(page <= 0 || page > products.totalPages);
 
