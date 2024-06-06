@@ -1,4 +1,4 @@
-<button><a href="http://localhost:8080/api/products">Inicio</a></button>
+<button><a href="http://localhost:8080/products">Inicio</a></button>
 <h2>Productos</h2>
 <main class="container" id="main">
   {{#each carts}}
@@ -7,7 +7,7 @@
     <img class="imgCard" src="https://img.freepik.com/vector-gratis/carrito-supermercado-compras-pictograma-comestibles_1284-11697.jpg?t=st=1716924400~exp=1716928000~hmac=e0c97c6a39d24c50782915693db0619af7c1d579f3ac77b0fb72cb60bb27d5ac&w=740" alt="Carrito" />
     <section class="textCard">
       <p>Cantidad de productos:{{this.products.length}}</p>
-      <button class="add-to-cart" data-id="{{this._id}}"><a href="http://localhost:8080/api/carts/{{this._id}}">Ver carrito</a></button>
+      <button class="add-to-cart" data-id="{{this._id}}"><a href="http://localhost:8080/carts/{{this._id}}">Ver carrito</a></button>
     </section>
   </section>
   {{/each}}

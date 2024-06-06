@@ -7,4 +7,3 @@ messagesRouter.get("/", (req, res) => {
     style: "style.css",
   });
 });
-

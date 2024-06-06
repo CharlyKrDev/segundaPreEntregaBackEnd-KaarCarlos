@@ -10,12 +10,14 @@ import { socketConnection } from "./connection/handleSockets.js";
 import { messagesConnection } from "./connection/messagesSockets.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cartsRouterApiM from "./routes/cartsApi.router.js";
+import { productsRouterApi } from "./routes/productsRoutersApi.js";
 
 const app = express();
 const PORT = 8080;
 const httpServer = app.listen(
   PORT,
-  console.log(`Server running on port: http://localhost:${PORT}/api/products`)
+  console.log(`Server running on port: http://localhost:${PORT}/products`)
 );
 const socketServer = new Server(httpServer);
 dotenv.config();
@@ -30,10 +32,12 @@ app.use(express.json());
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
-app.use("/", cartsRouterM);
+app.use("/api/carts", cartsRouterApiM);
+app.use("/carts", cartsRouterM);
 app.use("/dashBoardProducts", dashboardProductsRouter);
 app.use("/messages", messagesRouter);
-app.use("/api/products", homeRouter);
+app.use("/products", homeRouter);
+app.use("/api/products", productsRouterApi);
 
 mongoose
   .connect(mongoServer)

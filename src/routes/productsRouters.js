@@ -3,7 +3,7 @@ import productsModel from "../dao/models/products.model.js";
 
 const productsRouter = Router();
 
-productsRouter.get("/api/products", async (req, res) => {
+productsRouter.get("/", async (req, res) => {
   const limit = parseInt(req.query.limit);
   try {
     let products;
@@ -18,7 +18,7 @@ productsRouter.get("/api/products", async (req, res) => {
   }
 });
 
-productsRouter.get("/api/products/:pid", async (req, res) => {
+productsRouter.get("/products/:pid", async (req, res) => {
   const productId = req.params.pid;
   try {
     let product;
@@ -29,7 +29,7 @@ productsRouter.get("/api/products/:pid", async (req, res) => {
     res.status(404).json({ error: error.message });
   }
 });
-productsRouter.post("/api/products", async (req, res) => {
+productsRouter.post("/products", async (req, res) => {
   const {
     title,
     description,
@@ -57,7 +57,7 @@ productsRouter.post("/api/products", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 }),
-  productsRouter.put("/api/products/:pid", async (req, res) => {
+  productsRouter.put("/products/:pid", async (req, res) => {
     const productId = req.params.pid;
     const {
       title,
@@ -90,7 +90,7 @@ productsRouter.post("/api/products", async (req, res) => {
     }
   });
 
-productsRouter.delete("/api/products/:pid", async (req, res) => {
+productsRouter.delete("/products/:pid", async (req, res) => {
   const productId = req.params.pid;
 
   try {
@@ -103,7 +103,9 @@ productsRouter.delete("/api/products/:pid", async (req, res) => {
     await productsModel.deleteOne({ _id: productId });
     res
       .status(200)
-      .json({message:`El producto id: ${productId} ha sido eliminado correctamente`});
+      .json({
+        message: `El producto id: ${productId} ha sido eliminado correctamente`,
+      });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

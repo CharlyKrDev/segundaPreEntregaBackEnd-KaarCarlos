@@ -4,20 +4,15 @@ import cartsModel from "../dao/models/carts.models.js";
 import productsModel from "../dao/models/products.model.js";
 
 const ObjectId = mongoose.Types.ObjectId;
-const cartsRouterM = Router();
+const cartsRouterApiM = Router();
 
 //Todos los carritos
 
-cartsRouterM.get("/", async (req, res) => {
+cartsRouterApiM.get("/", async (req, res) => {
   try {
-    const imgCart = "/public/img/carrito.jpg";
     const carts = await cartsModel.find().lean();
 
-    res.render("carts", {
-      style: "style.css",
-      carts: carts,
-      img: imgCart,
-    });
+    res.status(200).json(carts);
   } catch (error) {
     res.status(500).json({
       message: `Error al obtener el carrito por ID`,
@@ -27,7 +22,7 @@ cartsRouterM.get("/", async (req, res) => {
 });
 
 // Obtener un carrito por ID
-cartsRouterM.get("/:cid", async (req, res) => {
+cartsRouterApiM.get("/:cid", async (req, res) => {
   const { cid } = req.params;
   try {
     const cart = await cartsModel
@@ -44,12 +39,7 @@ cartsRouterM.get("/:cid", async (req, res) => {
       total += product.quantity * product.productId.price;
     });
 
-    // Ahora puedes renderizar el carrito incluyendo el total
-    res.render("cart", {
-      style: "style.css",
-      cart: cart,
-      total: total,
-    });
+    res.status(200).json(cart);
   } catch (error) {
     res.status(500).json({
       message: `Error al obtener el carrito por ID`,
@@ -59,7 +49,7 @@ cartsRouterM.get("/:cid", async (req, res) => {
 });
 
 // Crear un nuevo carrito
-cartsRouterM.post("", async (req, res) => {
+cartsRouterApiM.post("/", async (req, res) => {
   try {
     const newCart = new cartsModel({ products: [] });
     await newCart.save();
@@ -74,7 +64,7 @@ cartsRouterM.post("", async (req, res) => {
 });
 
 // Agregar producto al carrito
-cartsRouterM.put("/:cid/products/:pid", async (req, res) => {
+cartsRouterApiM.put("/:cid/products/:pid", async (req, res) => {
   const { cid, pid } = req.params;
 
   try {
@@ -121,7 +111,7 @@ cartsRouterM.put("/:cid/products/:pid", async (req, res) => {
   }
 });
 //Borrar producto del carrito
-cartsRouterM.delete("/:cid/products/:pid", async (req, res) => {
+cartsRouterApiM.delete("/:cid/products/:pid", async (req, res) => {
   const { cid, pid } = req.params;
 
   try {
@@ -177,7 +167,7 @@ cartsRouterM.delete("/:cid/products/:pid", async (req, res) => {
 });
 
 //Borrar carrito
-cartsRouterM.delete("/:cid", async (req, res) => {
+cartsRouterApiM.delete("/:cid", async (req, res) => {
   const { cid } = req.params;
 
   try {
@@ -203,4 +193,4 @@ cartsRouterM.delete("/:cid", async (req, res) => {
   }
 });
 
-export default cartsRouterM;
+export default cartsRouterApiM;

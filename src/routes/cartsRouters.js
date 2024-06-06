@@ -17,7 +17,7 @@ cartsRouter.get("/api/carts/:cid", async (req, res) => {
   }
 });
 
-cartsRouter.post("/api/carts", async (req, res) => {
+cartsRouter.post("/carts", async (req, res) => {
   const cartEmpty = [];
   try {
     cartsManager.createCart(cartEmpty);
