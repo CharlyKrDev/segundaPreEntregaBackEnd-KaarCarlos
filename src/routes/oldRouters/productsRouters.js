@@ -1,5 +1,5 @@
 import { Router } from "express";
-import productsModel from "../dao/models/products.model.js";
+import productsModel from "../../dao/models/products.model.js";
 
 const productsRouter = Router();
 
@@ -103,9 +103,7 @@ productsRouter.delete("/products/:pid", async (req, res) => {
     await productsModel.deleteOne({ _id: productId });
     res
       .status(200)
-      .json({
-        message: `El producto id: ${productId} ha sido eliminado correctamente`,
-      });
+      .json({message:`El producto id: ${productId} ha sido eliminado correctamente`});
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

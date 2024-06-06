@@ -2,15 +2,14 @@ import express from "express";
 import { viewsPath, publicPath, hbs } from "./utils.js";
 import { dashboardProductsRouter } from "./routes/dashboardProductsRouter.js";
 import { homeRouter } from "./routes/homeRouters.js";
-import cartsRouterM from "./routes/carts.router.js";
+import cartsRouterM from "./routes/cartsRouter.js";
 import { Server } from "socket.io";
-import productsRouter from "./routes/productsRouters.js";
 import { messagesRouter } from "./routes/messagesRouters.js";
 import { socketConnection } from "./connection/handleSockets.js";
 import { messagesConnection } from "./connection/messagesSockets.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import cartsRouterApiM from "./routes/cartsApi.router.js";
+import cartsRouterApiM from "./routes/cartsRouterApi.js";
 import { productsRouterApi } from "./routes/productsRoutersApi.js";
 
 const app = express();
